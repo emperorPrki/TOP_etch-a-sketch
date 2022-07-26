@@ -50,17 +50,29 @@ button{
 
 #eas-container{
     display: grid;
-    grid-template-columns: repeat(16, auto);
     width: 960px;
     height: 960px;
     padding: 1em;
     background-color: black;
     grid-gap: 1px;
+    
 
 }
 
 .easBox{
     background-color: white;
+}
+
+.active{
+    background-color: black;
+}
+
+.gradual{
+    background-color: rgba(0, 0, 0, 10%);
+}
+
+.rainbow{
+    /*Treba randomizirat varijablu zbog rainbow modea*/
 }
 
 .wrapper-main{
