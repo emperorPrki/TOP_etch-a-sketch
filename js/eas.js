@@ -20,11 +20,26 @@ chooseGridSize.forEach((button) => {
     })
 })
 
-function makeActive(){
-    const gridCellArray = document.querySelectorAll(".easBox")
+function makeGradual(){
+    const gridCellArray = document.querySelectorAll(".easBox");
     gridCellArray.forEach((div) => {
         div.addEventListener("mouseover", () => {
-        div.setAttribute("class", "active");
+            const colorValue = getComputedStyle(div).getPropertyValue("background-color");
+            const arrayValues = colorValue.match(/[\d]+/g)
+
+            for (let i = 0; i < arrayValues.length; i++){
+                arrayValues[i] = arrayValues[i] - 51;
+            }
+            div.style.backgroundColor = "rgb(" + arrayValues.join(",") + ")";
+        })
+    })
+}
+
+function makeActive(){
+    const gridCellArray = document.querySelectorAll(".easBox");
+    gridCellArray.forEach((div) => {
+        div.addEventListener("mouseover", () => {
+        div.classList.add("active");
         })
     })
 }
