@@ -7,7 +7,7 @@ chooseGridSize.forEach((button) => {
         if (button.id === "grid100") {
             resetGrid();
             makeGrid100();
-            makeActive();
+            makeRainbow();
         } else if (button.id === "grid400"){
             resetGrid();
             makeGrid400();
@@ -19,6 +19,30 @@ chooseGridSize.forEach((button) => {
         }
     })
 })
+
+
+
+function makeRainbow(){
+
+    const gridCellArray = document.querySelectorAll(".easBox");
+    gridCellArray.forEach((div) => {
+        div.addEventListener("mouseover", () => {
+            
+            const rgb1 = Math.floor(Math.random()*256);
+            const rgb2 = Math.floor(Math.random()*256);
+            const rgb3 = Math.floor(Math.random()*256);
+            const rgbArray = [rgb1, rgb2, rgb3];
+
+            const colorValue = getComputedStyle(div).getPropertyValue("background-color");
+            const arrayValues = colorValue.match(/[\d.]+/g);
+
+            for(let i = 0; i < arrayValues.length; i++){
+                arrayValues[i] = rgbArray[i];
+            }
+            div.style.backgroundColor = "rgb(" + arrayValues.join(",") + ")";
+        })
+    })
+}
 
 function makeGradual(){
     const gridCellArray = document.querySelectorAll(".easBox");
