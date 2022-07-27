@@ -67,14 +67,6 @@ button{
     background-color: black;
 }
 
-.gradual{
-    background-color: rgb(255,255,255);
-}
-
-.rainbow{
-    /*Treba randomizirat varijablu zbog rainbow modea*/
-}
-
 .wrapper-main{
     width: 100%;
     background-color: purple;
